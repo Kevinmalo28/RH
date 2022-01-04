@@ -1,0 +1,186 @@
+.main{
+    height: 89.5%;
+}
+.link_5{
+    background-color: var(--color-6);
+}
+.link_2{
+    background-color: var(--color-5);
+}
+.sec-formularios-container{
+    width: 74.6%;
+    height: 99.6%;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 0 5%;;
+}
+.sec-formularios-container::-webkit-scrollbar{
+    width: 10px;
+    background-color: var(--color-9);
+}
+.sec-formularios-container::-webkit-scrollbar-thumb{
+    border-radius: 15px;
+    background-color: var(--color-7);
+}
+/* Contenedores info */
+.info-personal-container{
+    border: 2px solid var(--color-6);
+    background-color: var(--color-10);
+    height: calc(280px + 1vw);
+    margin-top: calc(10px + 1vw);
+}
+input{
+    height: calc(30px + 1vh);
+    padding-left: calc(10px + 1vh);
+    padding-right: calc(10px + 1vh);
+}
+select{
+    height: calc(34px + 1vh);
+    padding-left: calc(10px + 1vh);
+    padding-right: calc(10px + 1vh);
+}
+/* Grid */
+.sec-info-personal{grid-area: txt-info-personal;}
+.nombres-grid{grid-area: nombres;}
+.apellidos-grid{grid-area: apellidos;}
+.sexo-grid{grid-area: sexo;}
+.estado-civil-grid{grid-area: estado-civil;}
+.fecha-nacimiento-grid{grid-area: fecha-nacimiento;}
+.celular-grid{grid-area: celular;}
+.correo-grid{grid-area: correo;}
+.direccion-grid{grid-area: direccion;}
+.nacionalidad-grid{grid-area: nacionalidad;}
+.escolaridad-grid{grid-area: escolaridad;}
+.info-personal-container{
+    display: grid;
+    grid-template-areas: 
+        "txt-info-personal txt-info-personal txt-info-personal txt-info-personal"
+        "nombres apellidos sexo estado-civil"
+        "fecha-nacimiento celular correo correo"
+        "direccion direccion nacionalidad escolaridad"
+        ;
+    grid-gap: 10px;
+    padding: 2% 3%;
+}
+.estudios-realizzados-container{
+    border: 2px solid var(--color-6);
+    background-color: var(--color-10);
+    height: calc(180px + 1vw);
+    margin-top: calc(10px + 1vw);
+}
+.sec-est-realiz{grid-area: sec-est-realiz;}
+.institucion-1-grid{grid-area: institucion-1;}
+.t-obtenido-1-grid{grid-area: t-obtenido-1;}
+.f-inicio-1-grid{grid-area: f-inicio-1;}
+.f-fin-1-grid{grid-area: f-fin-1;}
+.institucion-2-grid{grid-area: institucion-2;}
+.t-obtenido-2-grid{grid-area: t-obtenido-2;}
+.f-inicio-2-grid{grid-area: f-inicio-2;}
+.f-fin-2-grid{grid-area: f-fin-2;}
+.estudios-realizzados-container{
+    display: grid;
+    grid-template-areas: 
+        "sec-est-realiz sec-est-realiz sec-est-realiz sec-est-realiz"
+        "institucion-1 t-obtenido-1 f-inicio-1 f-fin-1"
+        "institucion-2 t-obtenido-2 f-inicio-2 f-fin-2"
+        ;
+    grid-gap: 10px;
+    padding: 2% 3%;
+}
+.refer-personal-container{
+    border: 2px solid var(--color-6);
+    background-color: var(--color-10);
+    height: calc(180px + 1vw);
+    margin-top: calc(10px + 1vw);
+}
+.sec-refer-personal{grid-area: refer-personal;}
+.r-nombres-grid{grid-area: r-nombres;}
+.r-apellidos-grid{grid-area: r-apellidos;}
+.r-correo-grid{grid-area: r-correo;}
+.r-parentesco-grid{grid-area: r-parentesco;}
+.r-celular-grid{grid-area: r-celular;}
+.r-direccion-grid{grid-area: r-direccion;}
+.refer-personal-container{
+    display: grid;
+    grid-template-areas: 
+        "refer-personal refer-personal refer-personal refer-personal refer-personal"
+        "r-nombres r-apellidos r-correo r-correo r-correo"
+        "r-parentesco r-celular r-direccion r-direccion r-direccion"
+        ;
+    grid-gap: 10px;
+    padding: 2% 3%;
+}
+.det-empl-soli-container{
+    border: 2px solid var(--color-6);
+    background-color: var(--color-10);
+    height: calc(90px + 1vw);
+    margin-top: calc(10px + 1vw);
+}
+.dat-empl-soli{grid-area: dat-empl-soli;}
+.cargo-grid{grid-area: cargo;}
+.departamento-grid{grid-area: departamento;}
+.salario-grid{grid-area: salario;}
+.horario-grid{grid-area: horario;}
+.det-empl-soli-container{
+    display: grid;
+    grid-template-areas: 
+        "dat-empl-soli dat-empl-soli dat-empl-soli dat-empl-soli"
+        "cargo departamento salario horario"
+        ;
+    grid-gap: 10px;
+    padding: 2% 3%;
+}
+.exp-laboral-container{
+    border: 2px solid var(--color-6);
+    background-color: var(--color-10);
+    height: calc(180px + 1vw);
+    margin-top: calc(10px + 1vw);
+}
+.exp-laboral{grid-area: exp-laboral;}
+.n-compania-1-grid{grid-area: n-compania-1;}
+.c-desempeniado-1-grid{grid-area: c-desempeniado-1;}
+.f-inicio-c-1-grid{grid-area: f-inicio-c-1;}
+.f-fin-c-1-grid{grid-area: f-fin-c-1;}
+.n-compania-2-grid{grid-area: n-compania-2;}
+.c-desempeniado-2-grid{grid-area: c-desempeniado-2;}
+.f-inicio-c-2-grid{grid-area: f-inicio-c-2;}
+.f-fin-c-2-grid{grid-area: f-fin-c-2;}
+.exp-laboral-container{
+    display: grid;
+    grid-template-areas: 
+        "exp-laboral exp-laboral exp-laboral exp-laboral"
+        "n-compania-1 c-desempeniado-1 f-inicio-c-1 f-fin-c-1"
+        "n-compania-2 c-desempeniado-2 f-inicio-c-2 f-fin-c-2"
+        ;
+    grid-gap: 10px;
+    padding: 2% 3%;
+}
+label{
+    margin-bottom: 8px;
+}
+input, select, label, .btn-registrar-postulante{
+    font-size: calc(2px + 1vw);
+    border-radius: 15px;
+}
+input, select{
+    border: 2px solid #bbb;
+}
+input:active, select:active,
+input:focus, select:focus{
+    outline: 1px solid #aaa;
+}
+h3{
+    font-size: calc(4px + 1vw);
+}
+.btn-registrar-postulante{
+    width: 40%;
+    height: 9%;
+    font-weight: bold;
+    border: 2px solid var(--color-6);
+    background-color: var(--color-4);
+    cursor: pointer;
+    margin: 2.5% 30%;
+}
+.btn-registrar-postulante:hover{
+    background-color: var(--color-3);
+}

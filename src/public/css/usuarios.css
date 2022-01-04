@@ -1,0 +1,176 @@
+.main{
+    height: 89.5%;
+}
+.link_6{
+    background-color: var(--color-5);
+} 
+.registrar_usuarios_container{
+    width: 40.5%;
+}
+.usuarios_registrados_container{
+    width: 59.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.registrar_usuarios_container{
+    margin: 1%;
+    justify-content: space-between;
+}
+.usuarios_registrados_container{
+    margin: 1% 1% 1% 0;
+}
+.registrar_usuarios_container, .usuarios_registrados_container{
+    background-color: var(--color-10);
+    border: 2.5px solid var(--color-9);
+}
+.titulo_1{
+    margin: 3% 0 0 3%;
+}
+.titulo_2{
+    margin: 2% 0 0 2%;
+}
+.titulo_container{
+    font-weight: 500;
+    width: 100%;
+}
+.usuarios_form{
+    border: 2px solid var(--color-6);
+    width: 82%;
+    height: 80%;
+    margin: 2.5% 0;
+    justify-content: space-around;
+    padding: 5%;
+}
+.info_personal_container{
+    justify-content: space-between;
+}
+.nombre_container, .apellido_container{
+    width: 48%;
+    height: 85%;
+}
+#nombre, #apellido{
+    margin: 4px 0 0 0 !important;
+}
+.diseño_input{
+    height: calc(18px + 2.5vw);
+}
+.diseño_input{
+    padding: 0 20px;
+    width: calc(100% - 42px);
+    /* height: calc(18px + 2.5vw); */
+    border: 2px solid #000;
+}
+.diseño_input, .lbl_permisos{
+    margin: 4px 0 12px 0;
+}
+#nombre{
+    margin-right: 2% !important;
+}
+.txt_form, .diseño_input, .titulo_container, .txt_permisos{
+    font-size: calc(2px + 1vw);
+    font-weight: 500;
+}
+.txt_form{
+    width: 100%;
+}
+.txt_permisos{
+    font-weight: 400;
+}
+.input_registrar{
+    background-color: var(--color-4);
+    cursor: pointer;
+}
+.input_registrar:hover{
+    background-color: var(--color-3);
+}
+.titulo_container{
+    width: 100%;
+}
+.empleados-container{
+    height: 100%;
+}
+.empleados-table-container{
+    border: 2px solid var(--color-6);
+    width: 90%;
+    height: 80%;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-bottom: 2%;
+}
+.empleados-table-container::-webkit-scrollbar{
+    width: 10px;
+    border-radius: 0px 15px 15px 0px;
+    background-color: var(--color-9);
+}
+.empleados-table-container::-webkit-scrollbar-thumb{
+    border-radius: 5px 15px 15px 5px;
+    background-color: var(--color-7);
+}
+.tabla-usuarios{
+    width: 100%;
+    text-align: center;
+}
+.titulo-tabla{
+    font-weight: bold;
+}
+.img-tabla{
+    font-size: calc(40px + 1vw);
+}
+.titulo-tabla, .columna-1, .columna-2, 
+.columna-3, .columna-4{
+    font-size: calc(3px + 1vw);
+    padding: 1% 0;
+}
+.fa-pen, .fa-toggle-on, .fa-toggle-off{
+    margin: 0 12%;
+    cursor: pointer;
+}
+#buscar{
+    width: 60%;
+    height: 7%;
+    padding: 0 5%;
+    border: 2.5px solid var(--color-9);
+    font-size: calc(2px + 1vw);
+}
+.fila-titulos {
+    background-color: var(--color-8);
+}
+.fila-w{
+    background-color: white;
+}
+.popup{
+    display: none;
+    width: 8.65%;
+    height: 62px;
+    background-color: #80ED99;;
+    margin-top: 7.5px;
+    box-shadow: 2px 2px 5px #333;
+    border-radius: 10px;
+    font-size: calc(3.5px + .5vw);
+    font-weight: 500;
+}
+.popup::after{
+    content: '';
+    position: absolute;
+    left: 60px;
+    top: -11px;
+    width: 0;
+    height: 0;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 11px solid #80ED99;
+    clear: both;
+}
+.popup-button:hover .popup{
+    display: block;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.fa-toggle-on, .fa-toggle-off{
+    margin: 0 12%;
+    cursor: pointer;
+}

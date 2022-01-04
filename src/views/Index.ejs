@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recursos Humanos</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/generales.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body class="body d_flex f_d_column">
+    <main class="main d_flex j_c_center a_i_center">
+      <div class="login_container b_radius d_flex f_d_column a_i_center">
+        <img src="./img/logo.svg" alt="LOGO" class="logo" />
+        <form action="" class="login_form d_flex f_d_column a_i_center">
+          <span class="texto_form">Usuario</span>
+          <input
+            type="text"
+            name="usuario"
+            id="usuario"
+            class="diseño-input-login b_radius"
+          />
+          <span class="texto_form">Contraseña</span>
+          <input
+            type="password"
+            name="contraseña"
+            id="contraseña"
+            class="diseño-input-login b_radius"
+          />
+          <!-- onclick="ingresar()" -->
+          <input
+            type="button"
+            value="Iniciar sesión"
+            id="btn-iniciar-sesion"
+            class="diseño-input-login b_radius btn-iniciar-sesion"
+          />
+        </form>
+      </div>
+    </main>
+    <%- include("templates/Footer") %>
+  </body>
+</html>
+<script>
+  const btn_submit = document.querySelector("#btn-iniciar-sesion");
+
+  btn_submit.addEventListener("click", () => {
+    var user = document.getElementById("usuario").value;
+    var password = document.getElementById("contraseña").value;
+    if ((usuario == "") | (password == "")) {
+      alert("Campos vacíos!");
+    } else if (user != "" && password != "") {
+      let url = "/post-users";
+      let json = JSON.stringify({ usuario: user, contrasena: password });
+      fetch(url, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: json,
+      })
+        .then((res) => res.text())
+        .then((data) => {
+          console.log(data);
+          if (data == "1") {
+            location.href = "/empleados";
+          } else {
+            alert("Usuario o contraseña incorrectos!");
+          }
+        });
+    }
+  });
+
+  // function ingresar(){
+  //   let usuario = document.getElementById("usuario").value;
+  //   let contraseña = document.getElementById("contraseña").value;
+
+  //   if (usuario == "" | contraseña == ""){
+  //       alert("Campos vacíos!");
+  //   } else if (usuario == "user" && contraseña == "user" || usuario == "admin" && contraseña == "admin"){
+  //       location.href = "/empleados";
+  //   } else{
+  //       alert("Usuario o contraseña incorrectos!");
+  //   }
+  // }
+</script>

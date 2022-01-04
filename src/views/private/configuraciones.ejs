@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuraciones</title>
+    <link rel="stylesheet" href="../css/configuraciones.css" />
+  </head>
+  <body class="body d_flex f_d_column">
+    <%- include("../templates/Header") %>
+    <main class="main d_flex">
+      <%- include("../templates/Menu") %>
+      <div class="btns-container d-flex f_d_column a_i_center j_c_center">
+        <input
+          type="submit"
+          value="Crear copia de seguridad"
+          class="btn-diseño b_radius"
+        />
+        <input
+          type="submit"
+          value="Restaurar copia de seguridad"
+          class="btn-diseño b_radius"
+        />
+      </div>
+    </main>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+  </body>
+</html>

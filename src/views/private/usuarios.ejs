@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="../css/usuarios.css" />
+  </head>
+  <body class="body d_flex f_d_column" onload="soloLectura()">
+    <%- include("../templates/Header") %>
+    <main class="main d_flex">
+      <%- include("../templates/Menu") %>
+      <div class="seccion_usuarios d_flex">
+        <div
+          class="
+            registrar_usuarios_container
+            b_radius
+            d_flex
+            f_d_column
+            a_i_center
+          "
+        >
+          <p class="titulo_container titulo_1">Registrar nuevos usuarios</p>
+          <form
+            action=""
+            autocomplete="off"
+            class="usuarios_form d_flex f_d_column a_i_center b_radius"
+          >
+            <div class="info_personal_container d_flex">
+              <div class="nombre_container d_flex f_d_column">
+                <span class="txt_nombre txt_form">Nombre</span>
+                <input
+                  type="text"
+                  name="nombre"
+                  id="nombre"
+                  class="diseño_input b_radius"
+                />
+              </div>
+              <div class="apellido_container d_flex f_d_column">
+                <span class="txt_apellido txt_form">Apellido</span>
+                <input
+                  type="text"
+                  name="apellido"
+                  id="apellido"
+                  class="diseño_input b_radius"
+                />
+              </div>
+            </div>
+            <span class="txt_form">Usuario</span>
+            <input
+              type="text"
+              name="usuario"
+              id="usuario"
+              class="diseño_input b_radius"
+              onclick="formatearUsuario()"
+            />
+            <span class="txt_form">Contraseña</span>
+            <input
+              type="password"
+              name="contraseña_1"
+              id="contraseña_1"
+              class="diseño_input b_radius"
+            />
+            <span class="txt_form">Repita la contraseña</span>
+            <input
+              type="password"
+              name="contraseña_2"
+              id="contraseña_2"
+              class="diseño_input b_radius"
+            />
+            <span class="txt_form">Permisos:</span>
+            <label class="lbl_permisos d-flex">
+              <input type="checkbox" name="permisos" id="permisos" />
+              <span class="txt_permisos">Administrador</span>
+            </label>
+            <button
+              type="button"
+              class="diseño_input input_registrar b_radius txt_form"
+              id="input_registrar"
+              id-usuario="00000"
+              onclick=""
+            >
+              Registrar / Actualizar
+            </button>
+          </form>
+        </div>
+        <div class="usuarios_registrados_container b_radius">
+          <p class="titulo_container titulo_2">Usuarios registrados</p>
+          <input
+            type="search"
+            name="buscar"
+            id="buscar"
+            placeholder="Digite el id o nombre del usuario a buscar"
+            class="b_radius"
+          />
+          <div class="empleados-table-container b_radius">
+            <div class="empleados-container b_radius">
+              <table class="tabla-usuarios b_radius">
+                <tr class="fila-titulos">
+                  <td class="titulo-tabla">Imagen</td>
+                  <td class="titulo-tabla">Id</td>
+                  <td class="titulo-tabla">Usuario</td>
+                  <td class="titulo-tabla">Permisos</td>
+                  <td class="titulo-tabla popup-button">
+                    Opciones
+                    <i class="fas fa-info-circle"></i>
+                    <div class="popup">
+                      <i class="fas fa-pen"> Editar usuario </i>
+                      <i class="fas fa-toggle-on"> Usuario activo </i>
+                      <i class="fas fa-toggle-off"> Usuario inactivo </i>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <!-- <tr class="fila-w"> Colorear fila blanca -->
+                  <td class="columna-1">
+                    <i class="fas fa-user-circle img-tabla"></i>
+                  </td>
+                  <td class="columna-1">Id usuario</td>
+                  <td class="columna-2">Nick usuario</td>
+                  <td class="columna-3">Nombre permisos</td>
+                  <td class="columna-4 iconos-opciones">
+                    <i class="fas fa-pen"></i>
+                    <i class="fas fa-toggle-on" value="1"></i>
+                    <!-- <i class="fas fa-toggle-off" value="0"></i> -->
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+.main{
+    height: 88.5%;
+} 
+.enlace_3{
+    background-color: var(--color-8);
+}
+.contactanos_container{
+    width: 45%;
+    height: 92%;
+    background-color: var(--color-10);
+    border: 2px solid var(--color-6);
+    justify-content: space-evenly;
+}
+.logo{
+    height: 20%;
+}
+.contactanos_form{
+    width: 90%;
+    height: 78%;
+    justify-content: space-between;
+}
+.texto_form, .btn-enviar{
+    font-size: calc(2px + 1vw);
+    font-weight: 600;
+}
+.fila1_form{
+    justify-content: space-between;
+}
+#nombre, #apellido{
+    width: calc(90% - 34px);
+}
+#nombre{
+    margin-right: 6%;
+}
+#apellido, .apellido_text{
+    margin-left: 6%;
+}
+.diseño-input{
+    padding: 0 20px;
+    width: calc(100% - 42px);
+    height: calc(1px + 3.5vw);
+    margin: 7px 0 17px 0;
+    border: 2px solid #000;
+    font-size: calc(2px + 1vw);
+}
+.fila1_form, .nombre_container, .apellido_container, .btn-enviar, .texto_form{
+    width: 100%;
+}
+.txtarea_form{
+    height: 31%;
+    padding-top: 10px;
+}
+.btn-enviar{
+    background-color: var(--color-4);
+    cursor: pointer;
+}
+.btn-enviar:hover{
+    background-color: var(--color-3);
+}

@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ul{
+    list-style: none;
+}
+li, a{
+    text-decoration: none;
+}
+:root{
+    --color-1: #22577A;
+    --color-2: #38A3A5;
+    --color-3: #57CC99;
+    --color-4: #80ED99;
+    --color-5: #333333;
+    --color-6: #666666;
+    --color-7: #999999;
+    --color-8: #cccccc;
+    --color-9: #dddddd;
+    --color-10: #eeeeee;
+    --shadow: rgba(0, 0, 0, 0.75);
+}
+.d_flex{
+    display: flex;
+}
+.f_d_column{
+    flex-direction: column;
+}
+.a_i_center{
+    align-items: center;
+}
+.j_c_center{
+    justify-content: center;
+}
+.b_radius{
+    border-radius: 15px;
+}
+.w_100{
+    width: 100%;
+}
+.body{
+    height: 100vh;
+}

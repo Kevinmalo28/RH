@@ -1,0 +1,39 @@
+.main{
+    height: 88.5%;
+} 
+.enlace_1{
+    background-color: var(--color-8);
+}
+.login_container{
+    width: 26.5%;
+    height: 75%;
+    background-color: var(--color-10);
+    border: 2px solid var(--color-6);
+    justify-content: space-evenly;
+}
+.login_form{
+    width: 100%;
+}
+.logo{
+    width: 80%;
+    margin: 0 11.5% 0 11.5%;
+}
+.texto_form, .btn-iniciar-sesion{
+    width: calc(73.5% + 20px) !important;
+    font-weight: 600;
+}
+.diseño-input-login{
+    padding: 0 20px;
+    width: calc(73.5% - 20px);
+    height: calc(1px + 3.5vw);
+    margin: 7px 0 17px 0;
+    border: 2px solid #000;
+    font-size: calc(2px + 1vw);
+}
+.btn-iniciar-sesion{
+    background-color: var(--color-4);
+    cursor: pointer;
+}
+.btn-iniciar-sesion:hover{
+    background-color: var(--color-3);
+}

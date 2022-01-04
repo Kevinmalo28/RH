@@ -1,0 +1,48 @@
+.header{
+    background-color: var(--color-2);
+    height: 10.5%;
+}
+.logo{
+    margin-left: 0.9%;
+}
+.separador{
+    width: 100%;
+}
+.user_out_container{
+    width: 45%;
+}
+.info_user_container{
+    width: 60%;
+    line-height: calc(100% + 2pt);
+    background-color: var(--color-3);
+}
+.info_user_container, .info_user{
+    margin-right: 3%;
+}
+.btn_salir{
+    width: 40%;
+    margin-right: 5%;
+    cursor: pointer;
+}
+.info_user_container, .btn_salir{
+    height: 75%;
+    font-size: calc(2px + 1vw);
+}
+.icono_usuario{
+    margin: 0 3%;
+    font-size: calc(2px + 2.2vw);
+}
+.icono_salir{
+    font-size: calc(2px + 1.1vw);
+}
+.txt_permisos_usuario{
+    font-weight: 500;
+    font-size: calc(0.8px + 1vw);
+}
+.btn_salir{
+    background-color: var(--color-4);
+    border: none;
+}
+.btn_salir:hover{
+    background-color: var(--color-3);
+}

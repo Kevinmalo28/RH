@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empleados</title>
+    <link rel="stylesheet" href="../css/empleados.css" />
+  </head>
+  <body class="body d_flex f_d_column">
+    <%- include("../templates/Header") %>
+    <main class="main d_flex">
+      <%- include("../templates/Menu") %>
+      <div class="seccion-empleados d-flex f_d_column a_i_center">
+        <div class="busqueda_container b_radius d-flex a_i_center">
+          <select name="cargo" id="cargo" class="cargo-container">
+            <option hidden selected>Seleccione un cargo para filtrar</option>
+            <option value="1">Cargo 1</option>
+            <option value="2">Cargo 2</option>
+            <option value="3">Cargo 3</option>
+            <option value="4">Cargo n</option>
+          </select>
+          <input
+            type="text"
+            name="empleado"
+            id="empleado"
+            class="input-empleado"
+            placeholder="Digite el nombre del empleado"
+          />
+          <i class="fas fa-search icono-buscar"></i>
+        </div>
+        <div class="empleados-container b_radius">
+          <table class="tabla-empleados">
+            <tr class="fila-titulos">
+              <td class="titulo-tabla">Imagen</td>
+              <td class="titulo-tabla">Id</td>
+              <td class="titulo-tabla">Nombre</td>
+              <td class="titulo-tabla">Cargo</td>
+              <td class="titulo-tabla">Departamento</td>
+              <td class="titulo-tabla">
+                Opciones
+                <i class="fas fa-info-circle"></i>
+              </td>
+            </tr>
+            <tr>
+              <td class="columna-1">
+                <i class="fas fa-user-circle img-tabla"></i>
+              </td>
+              <td class="columna-2">0001</td>
+              <td class="columna-3">Nombre Apellido</td>
+              <td class="columna-4">Cargo de ejemplo</td>
+              <td class="columna-5">Departamento de ejemplo</td>
+              <td class="columna-6 iconos-opciones">
+                <i class="far fa-eye icono-opcion"></i>
+                <i class="far fa-money-bill-alt icono-opcion"></i>
+                <i class="fas fa-building icono-opcion"></i>
+                <i class="far fa-calendar-alt icono-opcion"></i>
+                <i class="fas fa-trash-alt icono-opcion"></i>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </main>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+  </body>
+</html>

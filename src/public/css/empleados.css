@@ -1,0 +1,109 @@
+.main{
+    height: 89.5%;
+}
+.link_1{
+    background-color: var(--color-5);
+}
+.seccion-empleados{
+    width: 84.6%;
+    display: flex;
+    justify-content: space-evenly;
+}
+/* Búsqueda */
+.busqueda_container{
+    display: flex;
+    border: 2px solid var(--color-6);
+    width: 90%;
+    height: 9%;
+    padding: 0  0 0 1%;
+}
+.input-empleado{
+    height: 81%;
+    width: 54%;
+    padding: 0 3%;
+}
+.cargo-container{
+    height: 90%;
+    width: 30%;
+    padding: 0 1%;
+}
+#empleado{
+    border-left: 1px solid var(--color-6);
+    border-right: 1px solid var(--color-6);
+}
+select {
+    border: 0px #fff;
+    outline: 0px #fff;
+}
+#empleado:focus, #empleado:active{
+    outline: none;
+}
+#cargo, #empleado, .icono-buscar{
+    font-size: calc(2px + 1vw);
+}
+.input-empleado,
+.cargo-container{
+    border: 0px;
+}
+.icono-buscar{
+    padding: 2% 4%;
+    /* background-color: aqua; */
+    border-radius: 0px 15px 15px 0px;
+    cursor: pointer;
+}
+/* End búsqueda */
+.empleados-container{
+    width: 98%;
+    height: 80%;
+    background-color: var(--color-10);
+    border: 2px solid var(--color-6);
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.empleados-container::-webkit-scrollbar{
+    width: 10px;
+    border-radius: 0px 15px 15px 0px;
+    background-color: var(--color-9);
+}
+.empleados-container::-webkit-scrollbar-thumb{
+    border-radius: 5px 15px 15px 5px;
+    background-color: var(--color-7);
+}
+.tabla-empleados{
+    width: 100%;
+}
+.titulo-tabla{
+    font-weight: bold;
+}
+.separador-tabla{
+    margin: 1px;
+}
+.img-tabla{
+    font-size: calc(40px + 1vw);
+}
+.titulo-tabla,
+.columna-1, .columna-2, .columna-3,
+.columna-4, .columna-5, .columna-6{
+    text-align: center;
+    font-size: calc(3px + 1vw);
+    padding: 1% 0;
+}
+.columna-3, .columna-4{
+    width: 17%;
+} 
+.columna-5{
+    width: 20%;
+}
+.columna-6{
+    width: 25%;
+}
+.icono-opcion{
+    margin: 0 4%;
+    cursor: pointer;
+}
+.fila-titulos{
+    background-color: var(--color-8);
+}
+.fila-w{
+    background-color: white;
+}

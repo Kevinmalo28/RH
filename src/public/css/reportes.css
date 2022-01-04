@@ -1,0 +1,131 @@
+.main{
+    height: 89.5%;
+}
+.seccion_reportes{
+    width: 84.6%;
+}
+.titulo_seccion{
+    width: 98%;
+    padding: 2% 0 0 2%;
+}
+.link_4{
+    background-color: var(--color-5);
+}
+/* Switch button */
+.botoncito{
+    position: relative;
+    display: inline-block;
+    width: 3.6rem;
+    height: 2rem;
+}
+.botoncito input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.deslizadora{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(117, 117, 117);
+    transition: .4s;
+    border-radius: 20px;
+} 
+.deslizadora:before {
+    position: absolute;
+    content: "";
+    height: 1.6rem;
+    width: 1.6rem;
+    left: 0.2rem;
+    bottom: 0.2rem;
+    background-color: white;
+    transition: .4s;
+    border-radius: 20px;
+}
+input:checked + .deslizadora {
+    background-color: #34a853;
+}   
+input:checked + .deslizadora:before {
+    transform: translateX(1.6rem);
+}
+/* End switch button */
+.input_empleado_container{
+    justify-content: space-around;
+}
+.reportes_form{
+    border: 2px solid var(--color-7);
+    width: 32.8%;
+    height: 83%;
+    padding: 1% 5%;
+    background-color: var(--color-10);
+}
+.txt_form{
+    font-size: calc(2px + 1vw);
+    font-weight: 500;
+}
+.btns_container, .temporalidad_container{
+    width: 100%;
+    justify-content: space-evenly;
+}
+.btns_container{
+    margin: 2%;
+}
+.tipo_1, .tipo_2, .tipo_3, .tipo_4{
+    margin-right: 15px;
+}
+.desde_container, .hasta_container{
+    width: 43%
+}
+#desde, #hasta{
+    margin: 7% 0 5% 0;
+}
+#empleado{
+    width: 39%;
+    padding: 0 20px;
+}
+.info_parrafo_empleado{
+    width: 45%;
+}
+#desde, #hasta, #empleado, .input_generar{
+    height: calc(2px + 2.5vw);
+}
+.txt_tipos, .txt_temporalidad, .txt_empleado, .input_generar{
+    margin: 5% 0 3% 0;
+}
+.txt_tipos, .txt_temporalidad, .txt_empleado{
+    font-weight: 700;
+}
+.titulo_form{
+    font-weight: 800;
+}
+.titulo_seccion{
+    font-size: calc(2px + 1vw);
+    font-weight: 500;
+}
+.diseño_calendario{
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+.input_generar{
+    height: calc(1px + 3.5vw) !important;
+}
+#desde, #hasta, #empleado, .input_generar{
+    border: 2px solid #000;
+    font-weight: 400 !important;
+}
+.input_generar{
+    width: 97.5%;
+    background-color: var(--color-4);
+    cursor: pointer;
+    font-weight: 500 !important;
+}
+.input_generar:hover{
+    background-color: var(--color-3);
+}
+.info_parrafo_empleado{
+    font-weight: 400;
+}

@@ -1,0 +1,32 @@
+.menu_container{
+    background-color: var(--color-6);
+    width: 15.4%;
+}
+.seccion_usuarios{
+    width: 84.6%;
+}
+.icono_enlace{
+    color: #fff;
+    font-size: calc(2px + 1.22vw);
+}
+.titulo_menu{
+    width: 92%;
+    padding: 11% 0;
+}
+.ul_menu{
+    width: 88%;
+    height: 60%;
+    justify-content: space-around;
+}
+.titulo_menu, .titulo_enlace{
+    color: #fff;
+    font-weight: 500;
+    font-size: calc(2px + 1.22vw);
+}
+.enlace_container{
+    padding: 7% 5%;
+    margin: 1% 0;
+}
+.enlace_container:hover{
+    background-color: var(--color-5);
+} 

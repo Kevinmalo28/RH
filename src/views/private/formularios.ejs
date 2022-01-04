@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios</title>
+    <link rel="stylesheet" href="../css/formularios.css" />
+  </head>
+  <body class="body d_flex f_d_column">
+    <%- include("../templates/Header") %>
+    <main class="main d_flex">
+      <%- include("../templates/Menu") %>
+      <div class="sec-formularios-container d-flex a_i_center j_c_center">
+        <form action="" name="form-vacante">
+          <!-- Información personal -->
+          <div class="info-personal-container b_radius">
+            <h3 class="sec-info-personal">Información personal</h3>
+            <div class="d_flex f_d_column nombres-grid">
+              <label for="nombres">Nombres</label>
+              <input type="text" name="nombres" id="nombres" />
+            </div>
+            <div class="d_flex f_d_column apellidos-grid">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" name="apellidos" id="apellidos" />
+            </div>
+            <div class="d_flex f_d_column sexo-grid">
+              <label for="sexo">Sexo</label>
+              <select name="sexo" id="sexo">
+                <option hidden selected></option>
+                <option value="id_sexo">Nombre_sexo</option>
+              </select>
+            </div>
+            <div class="d_flex f_d_column estado-civil-grid">
+              <label for="estado-civil">Estado civil</label>
+              <select name="estado-civil" id="estado-civil">
+                <option hidden selected></option>
+                <option value="id_estado">Nombre_estado</option>
+              </select>
+            </div>
+            <div class="d_flex f_d_column fecha-nacimiento-grid">
+              <label for="fecha-nacimiento">Fecha de nacimiento</label>
+              <input
+                type="date"
+                name="fecha-nacimiento"
+                id="fecha-nacimiento"
+              />
+            </div>
+            <div class="d_flex f_d_column celular-grid">
+              <label for="celular">Celular</label>
+              <input type="text" name="celular" id="celular" />
+            </div>
+            <div class="d_flex f_d_column correo-grid">
+              <label for="correo">Correo</label>
+              <input type="text" name="correo" id="correo" />
+            </div>
+            <div class="d_flex f_d_column direccion-grid">
+              <label for="direccion">Dirección</label>
+              <input type="text" name="direccion" id="direccion" />
+            </div>
+            <div class="d_flex f_d_column nacionalidad-grid">
+              <label for="nacionalidad">Nacionalidad</label>
+              <select name="nacionalidad" id="nacionalidad">
+                <option hidden selected></option>
+                <option value="id_nacionalidad">Nombre_nacionalidad</option>
+              </select>
+            </div>
+            <div class="d_flex f_d_column escolaridad-grid">
+              <label for="escolaridad">Escolaridad</label>
+              <input type="text" name="escolaridad" id="escolaridad" />
+            </div>
+          </div>
+          <!-- Estudios realizados -->
+          <div class="estudios-realizzados-container b_radius">
+            <h3 class="sec-est-realiz">Estudios realizados</h3>
+            <div class="d_flex f_d_column institucion-1-grid">
+              <label for="n-institucion-1">Nombre de la institución 1</label>
+              <input type="text" name="n-institucion-1" id="n-institucion-1" />
+            </div>
+            <div class="d_flex f_d_column t-obtenido-1-grid">
+              <label for="t-obtenido-1">Título obtenido</label>
+              <input type="text" name="t-obtenido-1" id="t-obtenido-1" />
+            </div>
+            <div class="d_flex f_d_column f-inicio-1-grid">
+              <label for="f-inicio-1">Fecha de inicio</label>
+              <input type="date" name="f-inicio-1" id="f-inicio-1" />
+            </div>
+            <div class="d_flex f_d_column f-fin-1-grid">
+              <label for="f-fin-1">Fecha de finalización</label>
+              <input type="date" name="f-fin-1" id="f-fin-1" />
+            </div>
+            <div class="d_flex f_d_column institucion-2-grid">
+              <label for="n-institucion-2">Nombre de la institución 2</label>
+              <input type="text" name="n-institucion-2" id="n-institucion-2" />
+            </div>
+            <div class="d_flex f_d_column t-obtenido-2-grid">
+              <label for="t-obtenido-2">Título obtenido</label>
+              <input type="text" name="t-obtenido-2" id="t-obtenido-2" />
+            </div>
+            <div class="d_flex f_d_column f-inicio-2-grid">
+              <label for="f-inicio-2">Fecha de inicio</label>
+              <input type="date" name="f-inicio-2" id="f-inicio-2" />
+            </div>
+            <div class="d_flex f_d_column f-fin-2-grid">
+              <label for="f-fin-2">Fecha de finalización</label>
+              <input type="date" name="f-fin-2" id="f-fin-2" />
+            </div>
+          </div>
+          <!-- Referencia personal -->
+          <div class="refer-personal-container b_radius">
+            <h3 class="sec-refer-personal">Referencia personal</h3>
+            <div class="d_flex f_d_column r-nombres-grid">
+              <label for="r-nombres">Nombres</label>
+              <input type="text" name="r-nombres" id="r-nombres" />
+            </div>
+            <div class="d_flex f_d_column r-apellidos-grid">
+              <label for="r-apellidos">Apellidos</label>
+              <input type="text" name="r-apellidos" id="r-apellidos" />
+            </div>
+            <div class="d_flex f_d_column r-correo-grid">
+              <label for="r-correo">Correo</label>
+              <input type="text" name="r-correo" id="r-correo" />
+            </div>
+            <div class="d_flex f_d_column r-parentesco-grid">
+              <label for="r-parentesco">Parentesco</label>
+              <input type="text" name="r-parentesco" id="r-parentesco" />
+            </div>
+            <div class="d_flex f_d_column r-celular-grid">
+              <label for="r-celular">Celular</label>
+              <input type="text" name="r-celular" id="r-celular" />
+            </div>
+            <div class="d_flex f_d_column r-direccion-grid">
+              <label for="r-direccion">Dirección</label>
+              <input type="text" name="r-direccion" id="r-direccion" />
+            </div>
+          </div>
+          <!-- Datos del empleo solicitado -->
+          <div class="det-empl-soli-container b_radius">
+            <h3 class="dat-empl-soli b_radius">Datos del empleo solicitado</h3>
+            <div class="d_flex f_d_column cargo-grid">
+              <label for="cargo">Cargo</label>
+              <select name="cargo" id="cargo" class="">
+                <option hidden selected></option>
+                <option value="id_cargo">Nombre_cargo</option>
+              </select>
+            </div>
+            <div class="d_flex f_d_column departamento-grid">
+              <label for="departamento">Departamento</label>
+              <select name="departamento" id="departamento" class="">
+                <option hidden selected></option>
+                <option value="id_departamento">Nombre_departamento</option>
+              </select>
+            </div>
+            <div class="d_flex f_d_column salario-grid">
+              <label for="salario">Salario</label>
+              <select name="salario" id="salario" class="">
+                <option hidden selected></option>
+                <option value="id_salario">Total_salario</option>
+              </select>
+            </div>
+            <div class="d_flex f_d_column horario-grid">
+              <label for="horario">Horario</label>
+              <select name="horario" id="horario" class="">
+                <option hidden selected></option>
+                <option>Horario_cargo</option>
+              </select>
+            </div>
+          </div>
+          <!-- Experiencia laboral -->
+          <div class="exp-laboral-container b_radius">
+            <h3 class="exp-laboral">Experiencia laboral</h3>
+            <div class="d_flex f_d_column n-compania-1-grid">
+              <label for="n-compania-1">Nombre de la compañía 1</label>
+              <input type="text" name="n-compania-1" id="n-compania-1" />
+            </div>
+            <div class="d_flex f_d_column c-desempeniado-1-grid">
+              <label for="c-desempeniado-1">Cargo desempeñado</label>
+              <input
+                type="text"
+                name="c-desempeniado-1"
+                id="c-desempeniado-1"
+              />
+            </div>
+            <div class="d_flex f_d_column f-inicio-c-1-grid">
+              <label for="f-inicio-c-1">Fecha de inicio</label>
+              <input type="date" name="f-inicio-c-1" id="f-inicio-c-1" />
+            </div>
+            <div class="d_flex f_d_column f-fin-c-1-grid">
+              <label for="f-fin-c-1">Fecha de finalización</label>
+              <input type="date" name="f-fin-c-1" id="f-fin-c-1" />
+            </div>
+            <div class="d_flex f_d_column n-compania-2-grid">
+              <label for="n-compania-2">Nombre de la compañía 2</label>
+              <input type="text" name="n-compania-2" id="n-compania-2" />
+            </div>
+            <div class="d_flex f_d_column c-desempeniado-2-grid">
+              <label for="c-desempeniado-2">Cargo desempeñado</label>
+              <input
+                type="text"
+                name="c-desempeniado-2"
+                id="c-desempeniado-2"
+              />
+            </div>
+            <div class="d_flex f_d_column f-inicio-c-2-grid">
+              <label for="f-inicio-c-2">Fecha de inicio</label>
+              <input type="date" name="f-inicio-c-2" id="f-inicio-c-2" />
+            </div>
+            <div class="d_flex f_d_column f-fin-c-2-grid">
+              <label for="f-fin-c-2">Fecha de finalización</label>
+              <input type="date" name="f-fin-c-2" id="f-fin-c-2" />
+            </div>
+          </div>
+        </form>
+        <button
+          class="btn-registrar-postulante b_radius"
+          onclick="validarFormulario()"
+        >
+          Registrar postulante
+        </button>
+      </div>
+    </main>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+  </body>
+</html>

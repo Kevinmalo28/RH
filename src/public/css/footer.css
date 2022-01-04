@@ -1,0 +1,29 @@
+:root{
+    --color-icono: #000;
+    --color-titulo: #000;
+}
+.footer{
+    background-color: #fff;
+    border-top: 1px solid #000;
+    height: 11.5%;
+}
+.ul_footer{
+    justify-content: space-evenly;
+}
+.enlace_container{
+    padding: 1% 5%;
+}
+.enlace_container:hover{
+    /* --color-4 viene del archivo generales.css */
+    background-color: var(--color-8);
+}
+.enlace_icono{
+    color: var(--color-icono);
+}
+.enlace_titulo{
+    color: var(--color-titulo);
+}
+.enlace_icono, .enlace_titulo{
+    /* Iconos y textos responsivos */
+    font-size: calc(2px + 1vw); 
+}

@@ -1,0 +1,39 @@
+.main{
+    height: 88.5%;
+} 
+.enlace_1{
+    background-color: none;
+}
+.enlace_2{
+    background-color: var(--color-8);
+}
+.contenido-container{
+    width: 55%;
+    height: 56%;
+    border: 1px solid #000;
+    padding: 2% 4%;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: 2px solid var(--color-6);
+    background-color: var(--color-10);
+}
+.contenido-container::-webkit-scrollbar{
+    width: 10px;
+    border-radius: 0px 15px 15px 0px;
+    background-color: var(--color-9);
+}
+.contenido-container::-webkit-scrollbar-thumb{
+    border-radius: 5px 15px 15px 5px;
+    background-color: var(--color-7);
+}
+p{
+    font-size: calc(2px + 1vw);
+}
+h1{
+    text-align: center;
+    margin-bottom: 3%;
+    font-size: calc(15px + 1vw);
+}
+.logo{
+    width: 23%;
+}

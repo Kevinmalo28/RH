@@ -1,0 +1,27 @@
+.main{
+    height: 89.5%;
+}
+.link_1{
+    background-color: var(--color-6);
+}
+.link_5{
+    background-color: var(--color-5);
+}.btns-container{
+    width: 84.55%;
+}
+.btns-container{
+    display: flex;
+}
+.btn-diseño{
+    width: 50%;
+    height: 12%;
+    font-weight: bold;
+    font-size: calc(4px + 1vw);
+    border: 2px solid var(--color-5);
+    margin: 1%;
+    cursor: pointer;
+}
+.btn-diseño:hover{
+    background-color: var(--color-5);
+    color: white;
+}

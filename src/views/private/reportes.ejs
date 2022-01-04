@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reportes</title>
+    <link rel="stylesheet" href="../css/reportes.css" />
+  </head>
+  <body class="body d_flex f_d_column">
+    <%- include("../templates/Header") %>
+    <main class="main d_flex">
+      <%- include("../templates/Menu") %>
+      <div class="seccion_reportes d_flex f_d_column a_i_center">
+        <span class="titulo_seccion">Reportes</span>
+        <form
+          action=""
+          class="reportes_form b_radius d_flex f_d_column a_i_center j_c_center"
+        >
+          <span class="titulo_form txt_form">Filtros</span>
+          <span class="txt_form w_100 txt_tipos">Tipo:</span>
+          <div class="btns_container d_flex">
+            <div class="btn_switch_container d_flex a_i_center">
+              <span class="txt_form tipo_1">Atrasos&nbsp;&nbsp;&nbsp;</span>
+              <label class="botoncito">
+                <input type="checkbox" />
+                <span class="deslizadora"></span>
+              </label>
+            </div>
+            <div class="btn_switch_container d_flex a_i_center">
+              <span class="txt_form tipo_2">Horas asistidas</span>
+              <label class="botoncito">
+                <input type="checkbox" />
+                <span class="deslizadora"></span>
+              </label>
+            </div>
+          </div>
+          <div class="btns_container d_flex">
+            <div class="btn_switch_container d_flex a_i_center">
+              <span class="txt_form tipo_3"
+                >Faltas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+              >
+              <label class="botoncito">
+                <input type="checkbox" />
+                <span class="deslizadora"></span>
+              </label>
+            </div>
+            <div class="btn_switch_container d_flex a_i_center">
+              <span class="txt_form tipo_4"
+                >Días libre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+              >
+              <label class="botoncito">
+                <input type="checkbox" />
+                <span class="deslizadora"></span>
+              </label>
+            </div>
+          </div>
+          <span class="txt_form w_100 txt_temporalidad">Temporalidad:</span>
+          <div class="temporalidad_container d_flex w_100">
+            <div class="desde_container d_flex f_d_column">
+              <span class="txt_form">Desde</span>
+              <input
+                type="date"
+                name="desde"
+                id="desde"
+                class="diseño_calendario txt_form"
+              />
+            </div>
+            <div class="hasta_container d_flex f_d_column">
+              <span class="txt_form">Hasta</span>
+              <input
+                type="date"
+                name="hasta"
+                id="hasta"
+                class="diseño_calendario txt_form"
+              />
+            </div>
+          </div>
+          <span class="txt_form w_100 txt_empleado">Empleado:</span>
+          <div class="input_empleado_container d_flex">
+            <input
+              type="text"
+              name="empleado"
+              id="empleado"
+              placeholder="Id del empleado"
+              class="b_radius txt_form"
+            />
+            <p class="info_parrafo_empleado txt_form">
+              Dejar en blanco para una consulta general.
+            </p>
+          </div>
+          <input
+            type="submit"
+            value="Generar"
+            onclick="compobarFecha()"
+            class="txt_form b_radius input_generar"
+          />
+        </form>
+      </div>
+    </main>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RH - Contáctanos</title>
+    <link rel="stylesheet" href="../css/contactanos.css" />
+  </head>
+  <body class="body d_flex f_d_column">
+    <main class="main d_flex j_c_center a_i_center">
+      <div
+        class="
+          contactanos_container
+          b_radius
+          d_flex
+          f_d_column
+          j_c_center
+          a_i_center
+        "
+      >
+        <img src="../img/logo.svg" alt="LOGO" class="logo" />
+        <form action="" class="contactanos_form d_flex f_d_column a_i_center">
+          <div class="fila1_form d_flex">
+            <div class="nombre_container d_flex f_d_column">
+              <span class="texto_form">Nombre</span>
+              <input
+                type="text"
+                name="nombre"
+                id="nombre"
+                class="diseño-input b_radius"
+              />
+            </div>
+            <div class="apellido_container d_flex f_d_column">
+              <span class="texto_form apellido_text">Apellido</span>
+              <input
+                type="text"
+                name="apellido"
+                id="apellido"
+                class="diseño-input b_radius"
+              />
+            </div>
+          </div>
+          <span class="texto_form">Asunto</span>
+          <input
+            type="text"
+            name="asunto"
+            id="asunto"
+            class="diseño-input b_radius"
+          />
+          <span class="texto_form">Descripcion</span>
+          <textarea
+            name="descripcion"
+            id="descripcion"
+            cols="30"
+            rows="8"
+            class="b_radius txtarea_form diseño-input"
+          ></textarea>
+          <input
+            type="submit"
+            value="Enviar"
+            onclick="validar_contactanos()"
+            class="diseño-input b_radius btn-enviar"
+          />
+        </form>
+      </div>
+    </main>
+    <%- include("../templates/Footer") %>
+    <script type="text/javascript" src="../js/contactanos.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!-- CSS -->
+<link rel="stylesheet" href="../css/header.css">
+<!-- Header -->
+<header class="header d_flex">
+  <img src="../img/logo.svg" alt="LOGO" class="logo" />
+  <span class="separador"></span>
+  <div class="user_out_container d_flex a_i_center">
+    <div class="info_user_container d_flex j_c_center a_i_center b_radius">
+      <i class="fas fa-user-circle icono_usuario"></i>
+      <p class="info_user">
+        <strong class="txt_datos_usuario" id="txt_usuario"></strong><br />
+        <strong class="txt_permisos_usuario" id="txt_permisos"></strong>
+      </p>
+    </div>
+    <button class="btn_salir b_radius" onclick="salir()">
+      <i class="fas fa-sign-out-alt icono_salir"></i>
+      <strong class="texto_btn_salir">Salir</strong>
+    </button>
+  </div>
+</header>
+<script type="text/javascript">
+  function salir(){
+    location.href = "/"; 
+  }
+</script>
