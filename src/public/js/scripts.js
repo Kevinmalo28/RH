@@ -41,11 +41,13 @@ function obtenerDatos(){
 function comprobar(datoPass_1, datoPass_2){
     //Vomprobar que sean diferentes
     if(datoPass_1 != datoPass_2){
-        alert("Las contraseñas no coinciden!");   
-    }
-    //Comprobar que la contraseña tenga menos de 5 caracteres
-    if(datoPass_1.length < 5){
+        alert("Las contraseñas no coinciden!");
+        return true;
+    } else if(datoPass_1.length < 5){ //Comprobar que la contraseña tenga menos de 5 caracteres
         alert("La contraseña es demasiado corta");
+        return true;
+    } else {
+        return false;
     }
 }
 

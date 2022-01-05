@@ -1,5 +1,5 @@
 <!-- CSS -->
-<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/header.css" />
 <!-- Header -->
 <header class="header d_flex">
   <img src="../img/logo.svg" alt="LOGO" class="logo" />
@@ -19,7 +19,25 @@
   </div>
 </header>
 <script type="text/javascript">
-  function salir(){
-    location.href = "/"; 
+  function salir() {
+    location.href = "/";
   }
+  function leerDatos() {
+    fetch("json/usuario.json") //Leer el archivo de la ruta
+      .then((respuesta) => respuesta.json()) //Formato de obtención de los datos
+      .then((respuesta) => {
+        mostrar(respuesta);
+      })
+      .catch((error) => console.log(error)); //Mostrar los errores por consola
+  }
+  function mostrar(datos) {
+    console.log(datos);
+    var txt_usuario = document.querySelector("#txt_usuario");
+    var txt_permisos = document.querySelector("#txt_permisos");
+    for (let valor of datos) {
+      txt_usuario.innerHTML += valor.lname + " " + valor.fname;
+      txt_permisos.innerHTML += valor.permisos;
+    }
+  }
+  leerDatos();
 </script>

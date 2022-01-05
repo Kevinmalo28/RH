@@ -56,7 +56,7 @@
       alert("Campos vacíos!");
     } else if (user != "" && password != "") {
       let url = "/post-users";
-      let json = JSON.stringify({ usuario: user, contrasena: password });
+      let json = JSON.stringify({ usuario: user, contrasena: password, accion: 'ingresar'});
       fetch(url, {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -73,17 +73,4 @@
         });
     }
   });
-
-  // function ingresar(){
-  //   let usuario = document.getElementById("usuario").value;
-  //   let contraseña = document.getElementById("contraseña").value;
-
-  //   if (usuario == "" | contraseña == ""){
-  //       alert("Campos vacíos!");
-  //   } else if (usuario == "user" && contraseña == "user" || usuario == "admin" && contraseña == "admin"){
-  //       location.href = "/empleados";
-  //   } else{
-  //       alert("Usuario o contraseña incorrectos!");
-  //   }
-  // }
 </script>

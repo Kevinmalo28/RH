@@ -106,3 +106,8 @@ li, a{
 .logo, .info_text, .container_general{
     margin-top: -4%;
 }
+.mapa{
+    background-color: seagreen;
+    width: 25%;
+    height: 125%;
+}
