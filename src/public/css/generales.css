@@ -7,7 +7,7 @@ ul{
     list-style: none;
 }
 li, a{
-    text-decoration: none;
+    text-decoration: none !important;
 }
 :root{
     --color-1: #22577A;

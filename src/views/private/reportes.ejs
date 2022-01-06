@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reportes</title>
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
     <link rel="stylesheet" href="../css/reportes.css" />
   </head>
   <body class="body d_flex f_d_column">
@@ -12,7 +13,6 @@
     <main class="main d_flex">
       <%- include("../templates/Menu") %>
       <div class="seccion_reportes d_flex f_d_column a_i_center">
-        <span class="titulo_seccion">Reportes</span>
         <form
           action=""
           class="reportes_form b_radius d_flex f_d_column a_i_center j_c_center"
@@ -90,7 +90,7 @@
             </p>
           </div>
           <input
-            type="submit"
+            type="button"
             value="Generar"
             onclick="compobarFecha()"
             class="txt_form b_radius input_generar"
@@ -98,6 +98,15 @@
         </form>
       </div>
     </main>
-    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script>
+      function compobarFecha() {
+        var desde = document.getElementById("desde").value;
+        var hasta = document.getElementById("hasta").value;
+
+        if (hasta < desde) {
+          alert("El periodo seleccionado es incorrecto!");
+        }
+      }
+    </script>
   </body>
 </html>

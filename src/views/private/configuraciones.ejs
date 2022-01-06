@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Configuraciones</title>
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
     <link rel="stylesheet" href="../css/configuraciones.css" />
   </head>
   <body class="body d_flex f_d_column">
@@ -18,8 +19,7 @@
           class="btn-diseño b_radius"
           onclick="crearBackup()"
         />
-        <div id="documents">
-        </div>
+        <div id="documents"></div>
         <input
           type="submit"
           value="Restaurar copia de seguridad"
@@ -27,9 +27,8 @@
         />
       </div>
     </main>
-    <script type="text/javascript" src="../js/scripts.js"></script>
     <script>
-      function crearBackup(){
+      function crearBackup() {
         const div_document = document.getElementById("documents");
         div_document.style.height = "15%";
         div_document.innerHTML = `

@@ -4,10 +4,6 @@
 .seccion_reportes{
     width: 84.6%;
 }
-.titulo_seccion{
-    width: 98%;
-    padding: 2% 0 0 2%;
-}
 .link_4{
     background-color: var(--color-5);
 }
@@ -61,6 +57,7 @@ input:checked + .deslizadora:before {
     height: 83%;
     padding: 1% 5%;
     background-color: var(--color-10);
+    margin-top: 3%;
 }
 .txt_form{
     font-size: calc(2px + 1vw);
