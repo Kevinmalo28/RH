@@ -5,20 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Empleados</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="../css/empleados.css" />
   </head>
-  <body class="body d_flex f_d_column">
+  <body class="body d_flex f_d_column" onload="getData()">
     <%- include("../templates/Header") %>
     <main class="main d_flex">
       <%- include("../templates/Menu") %>
       <div class="seccion-empleados d-flex f_d_column a_i_center">
         <div class="busqueda_container b_radius d-flex a_i_center">
           <select name="cargo" id="cargo" class="cargo-container">
-            <option hidden selected>Seleccione un cargo para filtrar</option>
-            <option value="1">Cargo 1</option>
-            <option value="2">Cargo 2</option>
-            <option value="3">Cargo 3</option>
-            <option value="4">Cargo n</option>
+            <option value="00000" hidden selected>
+              Seleccione un cargo para filtrar
+            </option>
           </select>
           <input
             type="text"
@@ -31,37 +36,349 @@
         </div>
         <div class="empleados-container b_radius">
           <table class="tabla-empleados">
-            <tr class="fila-titulos">
-              <td class="titulo-tabla">Imagen</td>
-              <td class="titulo-tabla">Id</td>
-              <td class="titulo-tabla">Nombre</td>
-              <td class="titulo-tabla">Cargo</td>
-              <td class="titulo-tabla">Departamento</td>
-              <td class="titulo-tabla">
-                Opciones
-                <i class="fas fa-info-circle"></i>
-              </td>
-            </tr>
-            <tr>
-              <td class="columna-1">
-                <i class="fas fa-user-circle img-tabla"></i>
-              </td>
-              <td class="columna-2">0001</td>
-              <td class="columna-3">Nombre Apellido</td>
-              <td class="columna-4">Cargo de ejemplo</td>
-              <td class="columna-5">Departamento de ejemplo</td>
-              <td class="columna-6 iconos-opciones">
-                <i class="far fa-eye icono-opcion"></i>
-                <i class="far fa-money-bill-alt icono-opcion"></i>
-                <i class="fas fa-building icono-opcion"></i>
-                <i class="far fa-calendar-alt icono-opcion"></i>
-                <i class="fas fa-trash-alt icono-opcion"></i>
-              </td>
-            </tr>
+            <thead>
+              <tr class="fila-titulos">
+                <td class="titulo-tabla">Imagen</td>
+                <td class="titulo-tabla">Id</td>
+                <td class="titulo-tabla">Nombre</td>
+                <td class="titulo-tabla">Cargo</td>
+                <td class="titulo-tabla">Departamento</td>
+                <td class="titulo-tabla">
+                  Opciones
+                  <i class="fas fa-info-circle"></i>
+                </td>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
           </table>
         </div>
       </div>
     </main>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="cambiar-cargo"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cambiar cargo</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modal-body">
+            <div id="id_title"></div>
+            <form>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                id="select-cargo"
+              >
+                <option value="00000" selected>Seleccione un cargo</option>
+              </select>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              id="btn_cambiar_cargo"
+              onclick="cambiarCargo()"
+            >
+              Cambiar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal departamento -->
+    <div
+      class="modal fade"
+      id="cambiar-departamento"
+      tabindex="-1"
+      aria-labelledby="modalDepartamentoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalDepartamentoLabel">Cambiar departamento</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modal-body">
+            <div id="id_title_departamento"></div>
+            <form>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                id="select-departamento"
+              >
+                <option value="00000" selected>Seleccione un departamento</option>
+              </select>
+            </form>
+          </div>
+          <div class="modal-footer modal-footer-departamento">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              id="btn_cambiar_departamento" 
+              onclick="cambiarDepartamento()"  
+            >
+              Cambiar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="text/javascript" src="../js/scripts.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let modal_cargo = document.getElementById("cambiar-cargo");
+      let modal_departamento = document.getElementById("cambiar-departamento");
+      modal_cargo.addEventListener("show.bs.modal", function (event) {
+        //Div para poner el id del empleado seleccionado
+        var div_title = document.querySelector("#id_title");
+        //Obtener los datos del botón
+        let icon_bagde = event.relatedTarget;
+        //Obtener el atributo id del botón
+        let id = icon_bagde.getAttribute("data-bs-id");
+        //Insertar el id
+        div_title.innerHTML = `<h6>Id del empleado seleccionado: ${id}</h6>`;
+        //'Leer' el botón confirmar del modal
+        let btn_cambiar_cargo = document.querySelector(
+          ".modal-footer #btn_cambiar_cargo"
+        );
+        //Asignar al atributo id a el botón confirmar del modal
+        btn_cambiar_cargo.value = id;
+      });
+      modal_departamento.addEventListener("show.bs.modal", function (event) {
+        var div_title_departamento = document.querySelector("#id_title_departamento");
+        let icon_building = event.relatedTarget;
+        let id = icon_building.getAttribute("data-bs-id");
+        div_title_departamento.innerHTML = `<h6>Id del empleado seleccionado: ${id}</h6>`;
+        let btn_cambiar_departamento = document.querySelector(
+          ".modal-footer #btn_cambiar_departamento"
+        );
+        btn_cambiar_departamento.value = id;
+      });
+      function cambiarCargo() {
+        //Obtener el id del botón del modal
+        let btn_cambiar_cargo =
+          document.getElementById("btn_cambiar_cargo").value;
+        let select_cargo = document.getElementById("select-cargo").value;
+        if (select_cargo == "00000") {
+          alert("Error: Debe seleccionar un cargo!");
+        } else {
+          let url = "/post-empleados";
+          let json = JSON.stringify({
+            id_empleado: btn_cambiar_cargo,
+            id_cargo: select_cargo,
+            accion: "cambiar_cargo",
+          });
+          fetch(url, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: json,
+          })
+            .then((res) => res.text())
+            .then((data) => {
+              if(data == "ok"){
+                window.location.reload();
+              } else {
+                alert(data);
+              }
+            })
+            .catch((error) => console.log(error));
+        }
+      }
+      function cambiarDepartamento() {
+        //Obtener el id del botón del modal
+        let btn_cambiar_departamento =
+          document.getElementById("btn_cambiar_departamento").value;
+        let select_departamento = document.getElementById("select-departamento").value;
+        if (select_departamento == "00000") {
+          alert("Error: Debe seleccionar un cargo!");
+        } else {
+          let url = "/post-empleados";
+          let json = JSON.stringify({
+            id_empleado: btn_cambiar_departamento,
+            id_departamento: select_departamento,
+            accion: "cambiar_departamento",
+          });
+          fetch(url, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: json,
+          })
+            .then((res) => res.text())
+            .then((data) => {
+              if(data == "ok"){
+                window.location.reload();
+              } else {
+                alert(data);
+              }
+            })
+            .catch((error) => console.log(error));
+        }
+      }
+      function eliminarEmpleado(btn) {
+        let id_descartado = btn.getAttribute("id-trash");
+        let url = "/post-postulantes";
+        let json = JSON.stringify({
+          id: id_descartado,
+          accion: "descartar_postulante",
+        });
+        fetch(url, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: json,
+        })
+          .then((res) => res.text())
+          .then((data) => console.log(data))
+          .catch((error) => console.log(error));
+
+        //Recargar la página
+        setTimeout(window.location.reload(), 3000);
+      }
+      function getData() {
+        getEmpleados();
+        getCargo();
+        getDepartamento();
+      }
+      function getEmpleados() {
+        let url = "/post-empleados";
+        let json = JSON.stringify({ accion: "cargar_empleados" });
+        fetch(url, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: json,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            //console.log(data);
+            if (data.length >= 1) {
+              //Obtener el tbody de la tabla para los innerHTML
+              const tbody = document.querySelector("#tbody");
+              //Recorrer todos los datos postulantes) de la respuesta del servidor
+              for (var i = 0; i < data.length; i++) {
+                let color_tr = "";
+                if (i % 2 == 0) {
+                  color_tr = `<tr>`;
+                } else {
+                  color_tr = `<tr class="fila-w">`; //Colorear fila blanca
+                }
+                tbody.innerHTML += `
+                  ${color_tr}
+                    <td class="columna-1">
+                    <i class="fas fa-user-circle img-tabla"></i>
+                    </td>
+                    <td class="columna-2">${data[i].id}</td>
+                    <td class="columna-3">${
+                      data[i].nombre.substring(0, data[i].nombre.indexOf(" ")) +
+                      " " +
+                      data[i].apellido.substring(
+                        0,
+                        data[i].apellido.indexOf(" ")
+                      )
+                    }</td>
+                    <td class="columna-4">${data[i].cargo}</td>
+                    <td class="columna-5">${data[i].departamento}</td>
+                   
+                    <td class="columna-6 iconos-opciones">
+                      <i class="far fa-eye icono-opcion"></i>
+                      <i class="fas fa-id-badge icono-opcion" class="btn btn-primary" data-bs-id="${
+                        data[i].id
+                      }" data-bs-toggle="modal" data-bs-target="#cambiar-cargo"></i>
+                      <i class="fas fa-building icono-opcion"  data-bs-id="${
+                        data[i].id
+                      }" data-bs-toggle="modal" data-bs-target="#cambiar-departamento"></i>
+                      <i class="far fa-calendar-alt icono-opcion" id-calendar="${
+                        data[i].id
+                      }"></i>
+                      <i class="fas fa-trash-alt icono-opcion" id-trash="${
+                        data[i].id
+                      }" onclick="eliminarEmpleado(this)"></i>
+                    </td>
+                  </tr>
+                `;
+              }
+            }
+          })
+          .catch((error) => console.log(error));
+      }
+      function getCargo() {
+        let url = "/post-persons";
+        let json = JSON.stringify({ accion: "cargar_cargo" });
+        fetch(url, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: json,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            let select_cargo = document.querySelector("#cargo");
+            let modal_select_cargo = document.querySelector("#select-cargo");
+            for (var i = 0; i < data.length; i++) {
+              select_cargo.innerHTML += `
+                <option value="${data[i].id}">${data[i].nombre}</option>
+              `;
+              modal_select_cargo.innerHTML += `
+                <option value="${data[i].id}">${data[i].nombre}</option>
+              `;
+            }
+          })
+          .catch((error) => console.log(error));
+      }
+      function getDepartamento() {
+        let url = "/post-persons";
+        let json = JSON.stringify({ accion: "cargar_departamento" });
+        fetch(url, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: json,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            let select_departamento = document.querySelector("#select-departamento");
+            for (var i = 0; i < data.length; i++) {
+              select_departamento.innerHTML += `
+                <option value="${data[i].id}">${data[i].nombre}</option>
+              `;
+            }
+          })
+          .catch((error) => console.log(error));
+      }
+    </script>
   </body>
 </html>

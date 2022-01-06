@@ -8,18 +8,14 @@
     <link rel="stylesheet" href="../css/empleados.css" />
     <link rel="stylesheet" href="../css/solicitudes.css" />
   </head>
-  <body class="body d_flex f_d_column">
+  <body class="body d_flex f_d_column" onload="getDatos()">
     <%- include("../templates/Header") %>
     <main class="main d_flex">
       <%- include("../templates/Menu") %>
       <div class="seccion-empleados d-flex f_d_column a_i_center">
         <div class="busqueda_container b_radius d-flex a_i_center">
           <select name="cargo" id="cargo" class="cargo-container">
-            <option hidden selected>Seleccione un cargo para filtrar</option>
-            <option value="1">Cargo 1</option>
-            <option value="2">Cargo 2</option>
-            <option value="3">Cargo 3</option>
-            <option value="4">Cargo n</option>
+            <option value="00000" hidden selected>Seleccione un cargo para filtrar</option>
           </select>
           <input
             type="text"
@@ -32,7 +28,7 @@
         </div>
         <div class="empleados-container b_radius">
           <table class="tabla-empleados">
-            <tr class="fila-titulos">
+            <thead class="fila-titulos">
               <td class="titulo-tabla">Imagen</td>
               <td class="titulo-tabla">Nombre</td>
               <td class="titulo-tabla">Cargo postulante</td>
@@ -42,25 +38,125 @@
                 Opciones
                 <i class="fas fa-info-circle"></i>
               </td>
-            </tr>
-            <tr>
-              <td class="columna-1">
-                <i class="fas fa-user-circle img-tabla"></i>
-              </td>
-              <td class="columna-2">Nombre Apellido</td>
-              <td class="columna-3">Cargo de ejemplo</td>
-              <td class="columna-4">0987654321</td>
-              <td class="columna-5">correo@gmail.com</td>
-              <td class="columna-6 iconos-opciones">
-                <i class="far fa-eye icono-opcion"></i>
-                <i class="fas fa-check-square icono-opcion"></i>
-                <i class="fas fa-trash-alt icono-opcion"></i>
-              </td>
-            </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
           </table>
         </div>
       </div>
     </main>
     <script type="text/javascript" src="../js/scripts.js"></script>
+    <script>
+      function getDatos() {
+        getPostulantes();
+        getCargo();
+      }
+      function getPostulantes() {
+        let url = "/post-postulantes";
+        let json = JSON.stringify({ accion: "cargar_postulantes" });
+        fetch(url, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: json,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            //console.log(data);
+            if (data.length >= 1) {
+              //Obtener el tbody de la tabla para los innerHTML
+              const tbody = document.querySelector("#tbody");
+              //Recorrer todos los datos postulantes) de la respuesta del servidor
+              for (var i = 0; i < data.length; i++) {
+                let color_tr = "";
+                if (i % 2 == 0) {
+                  color_tr = `<tr>`;
+                } else {
+                  color_tr = `<tr class="fila-w">`; //Colorear fila blanca
+                }
+                tbody.innerHTML += `
+                  ${color_tr}
+                    <td class="columna-1">
+                    <i class="fas fa-user-circle img-tabla"></i>
+                    </td>
+                    <td class="columna-2">${ 
+                      data[i].nombre.substring(0, data[i].nombre.indexOf(" ")) + " " +
+                      data[i].apellido.substring(0, data[i].apellido.indexOf(" "))
+                    }</td>
+                    <td class="columna-3">${data[i].cargo}</td>
+                    <td class="columna-4">${data[i].celular}</td>
+                    <td class="columna-5">${data[i].correo}</td>
+                    <td class="columna-6 iconos-opciones">
+                      <i class="far fa-eye icono-opcion"></i>
+                      <i class="fas fa-check-square icono-opcion" id-square="${
+                        data[i].id
+                      }" onclick="contratar(this)"></i>
+                      <i class="fas fa-trash-alt icono-opcion" id-trash="${
+                        data[i].id
+                      }" onclick="descartarPostulante(this)" ></i>
+                    </td>
+                  </tr>
+                `;
+              }
+            }
+          })
+          .catch((error) => console.log(error));
+      }
+      function contratar(btn) {
+        let id_contratar = btn.getAttribute("id-square");
+        let url = "/post-postulantes";
+        let json = JSON.stringify({
+          id: id_contratar,
+          accion: "contratar_postulante",
+        });
+        fetch(url, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: json,
+        })
+          .then((res) => res.text())
+          .then((data) => console.log(data))
+          .catch((error) => console.log(error));
+
+        //Recargar la página
+        setTimeout(window.location.reload(), 5000);
+      }
+      function descartarPostulante(btn) {
+        let id_descartado = btn.getAttribute("id-trash");
+        let url = "/post-postulantes";
+        let json = JSON.stringify({
+          id: id_descartado,
+          accion: "descartar_postulante",
+        });
+        fetch(url, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: json,
+        })
+          .then((res) => res.text())
+          .then((data) => console.log(data))
+          .catch((error) => console.log(error));
+
+        //Recargar la página
+        setTimeout(window.location.reload(), 3000);
+      }
+      function getCargo() {
+        let url = "/post-postulantes";
+        let json = JSON.stringify({ accion: "cargar_cargo" });
+        fetch(url, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: json,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            let select_cargo = document.querySelector("#cargo");
+            for (var i = 0; i < data.length; i++) {
+              select_cargo.innerHTML += `
+                <option value="${data[i].id}">${data[i].nombre}</option>
+              `;
+            }
+          })
+          .catch((error) => console.log(error));
+      }
+    </script>
   </body>
 </html>

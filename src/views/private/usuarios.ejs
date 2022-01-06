@@ -9,7 +9,7 @@
   </head>
   <body
     class="body d_flex f_d_column"
-    onload="soloLectura(); cargarUsuarios();"
+    onload="setData();"
   >
     <%- include("../templates/Header") %>
     <main class="main d_flex">
@@ -130,6 +130,10 @@
     </main>
     <script type="text/javascript" src="../js/scripts.js"></script>
     <script>
+      function setData() {
+        soloLectura();
+        cargarUsuarios();
+      }
       cargarUsuarios();
       function cargarUsuarios() {
         let url = "/post-users";
@@ -232,9 +236,6 @@
                       .catch((error) => console.log(error));
                   }
                 });
-              setTimeout(function () {
-                window.location.reload();
-              }, 2000);
             } else {
               //Actualizar usuario
               let id_actualizar = document
@@ -309,8 +310,9 @@
           .then((res) => res.text())
           .then((data) => console.log(data))
           .catch((error) => console.log(error));
-
-        setTimeout(window.location.reload(), 2000);
+        
+        //Recargar la página
+        setTimeout(window.location.reload(), 5000);
       }
     </script>
   </body>

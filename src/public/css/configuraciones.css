@@ -1,27 +1,46 @@
-.main{
-    height: 89.5%;
+.main {
+  height: 89.5%;
 }
-.link_1{
-    background-color: var(--color-6);
+.link_1 {
+  background-color: var(--color-6);
 }
-.link_5{
-    background-color: var(--color-5);
-}.btns-container{
-    width: 84.55%;
+.link_5 {
+  background-color: var(--color-5);
 }
-.btns-container{
-    display: flex;
+.btns-container {
+  width: 84.55%;
 }
-.btn-diseño{
-    width: 50%;
-    height: 12%;
-    font-weight: bold;
-    font-size: calc(4px + 1vw);
-    border: 2px solid var(--color-5);
-    margin: 1%;
-    cursor: pointer;
+.btns-container {
+  display: flex;
 }
-.btn-diseño:hover{
-    background-color: var(--color-5);
-    color: white;
+.btn-diseño {
+  width: 50%;
+  height: 12%;
+  font-weight: bold;
+  font-size: calc(4px + 1vw);
+  border: 2px solid var(--color-5);
+  margin: 1%;
+  cursor: pointer;
 }
+.btn-diseño:hover {
+  background-color: var(--color-5);
+  color: white;
+}
+/* Descargas */
+#documents {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#documents > a {
+  background-color: #ddd;
+  color: #000;
+  padding: 2% 4%;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+#documents > a:hover {
+    background-color: #bbb;
+    border: 1px solid #aaa;
+  }

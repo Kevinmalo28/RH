@@ -84,16 +84,21 @@ app.post("/post-users", async (req, res) => {
         if (rows[0].total >= 1) {
           //Existe el usuario
           var json = JSON.stringify({
-            lname: (rows[0].nombre.charAt(0).toUpperCase() + rows[0].nombre.slice(1)),
-            fname: (rows[0].apellido.charAt(0).toUpperCase() + rows[0].apellido.slice(1)),
-            permisos: (rows[0].permisos.charAt(0).toUpperCase() + rows[0].permisos.slice(1)),
+            lname:
+              rows[0].nombre.charAt(0).toUpperCase() + rows[0].nombre.slice(1),
+            fname:
+              rows[0].apellido.charAt(0).toUpperCase() +
+              rows[0].apellido.slice(1),
+            permisos:
+              rows[0].permisos.charAt(0).toUpperCase() +
+              rows[0].permisos.slice(1),
           });
           json = "[" + json + "]"; //Formato para que pueda ser leído
           var file = fs.writeFileSync("./src/public/json/usuario.json", json);
         }
       }
     );
-    conexion.end();
+    //conexion.end();
   } else if (accion == "cargar_usuarios") {
     conexion.query(
       "select id_usuario as id, nick_usuario as nick, nombre_permiso as permisos, estado_usuario " +
@@ -110,7 +115,7 @@ app.post("/post-users", async (req, res) => {
         res.send(rows[0].id); //Retornamos la respuesta de la base de datos
       }
     );
-    conexion.end();
+    //conexion.end();
   } else if (accion == "crear_usuario") {
     const id = req.body.id;
     const permisos = req.body.permisos;
@@ -125,7 +130,7 @@ app.post("/post-users", async (req, res) => {
         //res.send("t"); //Retornamos la respuesta de la base de datos
       }
     );
-    conexion.end();
+    //conexion.end();
   } else if (accion == "consultar_usuario") {
     const id = req.body.id;
     conexion.query(
@@ -135,7 +140,7 @@ app.post("/post-users", async (req, res) => {
         res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
       }
     );
-    conexion.end();
+    //conexion.end();
   } else if (accion == "actualizar_usuario") {
     const id = req.body.id;
     const permisos = req.body.permisos;
@@ -170,10 +175,257 @@ app.post("/post-users", async (req, res) => {
         }
       }
     );
-    conexion.end();
+    //conexion.end();
   }
 });
 
+//Tabla persona
+app.post("/post-persons", (req, res) => {
+  res.setHeader("content-type", "text/plain");
+  const accion = req.body.accion;
+  if (accion == "consultar_ultimo_id_persona") {
+    conexion.query(
+      "select id_persona as id from persona order by id_persona desc limit 1;",
+      (err, rows) => {
+        res.send("" + rows[0].id); //Retornamos la respuesta de la base de datos
+      }
+    );
+    //conexion.end();
+  } else if (accion == "cargar_sexos") {
+    conexion.query(
+      "select id_sexo as id, nombre_sexo as nombre from sexo order by id_sexo;",
+      (err, rows) => {
+        res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
+      }
+    );
+  } else if (accion == "cargar_estados_civiles") {
+    conexion.query(
+      "select id_estado as id, nombre_estado as nombre from estado_civil order by id_estado;",
+      (err, rows) => {
+        res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
+      }
+    );
+  } else if (accion == "cargar_nacionalidad") {
+    conexion.query(
+      "select id_nacionalidad as id, nombre_nacionalidad as nombre from nacionalidad order by id_nacionalidad;",
+      (err, rows) => {
+        res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
+      }
+    );
+  } else if (accion == "cargar_escolaridad") {
+    conexion.query(
+      "select id_escolaridad as id, nombre_escolaridad as nombre from escolaridad order by id_escolaridad;",
+      (err, rows) => {
+        res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
+      }
+    );
+  } else if (accion == "cargar_cargo") {
+    conexion.query(
+      "select id_cargo as id, nombre_cargo as nombre from cargo order by id_cargo;",
+      (err, rows) => {
+        res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
+      }
+    );
+  } else if (accion == "cargar_departamento") {
+    conexion.query(
+      "select id_departamento as id, nombre_departamento as nombre from departamento order by id_departamento;",
+      (err, rows) => {
+        res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
+      }
+    );
+  } else if (accion == "crear_vacante") {
+    nuevo_id = req.body.id;
+    nombres = req.body.data_nombres;
+    apellidos = req.body.data_apellidos;
+    sexo = req.body.data_sexo;
+    estado_civil = req.body.data_estado_civil;
+    f_nacimiento = req.body.data_f_nacimiento;
+    celular = req.body.data_celular;
+    correo = req.body.data_data_correo;
+    direccion = req.body.data_direccion;
+    nacionalidad = req.body.data_nacionalidad;
+    escolaridad = req.body.data_escolaridad;
+    n_institucion = req.body.data_n_institucion_1;
+    titulo_obt = req.body.data_titulo_obt_1;
+    f_inicio = req.body.data_f_inicio_1;
+    f_fin = req.body.data_f_fin_1;
+    r_nombres = req.body.data_r_nombres;
+    r_apellidos = req.body.data_r_apellidos;
+    r_correo = req.body.data_r_correo;
+    r_parentesco = req.body.data_r_parentesco;
+    r_celular = req.body.data_r_celular;
+    r_direccion = req.body.data_r_direccion;
+    cargo = req.body.data_cargo;
+    departamento = req.body.data_departamento;
+    n_compania = req.body.data_n_compania_1;
+    c_desempeniado = req.body.data_c_desempeniado_1;
+    f_inicio_c = req.body.data_f_inicio_c_1;
+    f_fin_c = req.body.data_f_fin_c_1;
+    tipo = req.body.data_tipo;
+
+    //Flag para verificar que el usuario fue creado correctamente
+    let flagError = false;
+
+    //Insertar los datos en la DB
+    conexion.query(
+      `insert into estudios values 
+      ('${nuevo_id}', '${n_institucion}', '${titulo_obt}', '${f_inicio}', '${f_fin}');`,
+      (err, rows) => {
+        if (err) {
+          flagError = true;
+          console.log("Error: " + err);
+        }
+      }
+    );
+    conexion.query(
+      `insert into referencia values
+      ('${nuevo_id}', '${r_nombres}', '${r_apellidos}', '${r_correo}', '${r_parentesco}', 
+      '${r_celular}', '${r_direccion}');`,
+      (err, rows) => {
+        if (err) {
+          flagError = true;
+          console.log("Error: " + err);
+        }
+      }
+    );
+    conexion.query(
+      `insert into experiencia_laboral values
+      ('${nuevo_id}', '${n_compania}', '${c_desempeniado}', '${f_inicio_c}', '${f_fin_c}');`,
+      (err, rows) => {
+        if (err) {
+          flagError = true;
+          console.log("Error: " + err);
+        }
+      }
+    );
+    conexion.query(
+      `insert into persona values
+      ('${nuevo_id}', '${sexo}', '${estado_civil}', '${nacionalidad}', '${escolaridad}', '${cargo}', 
+      '${departamento}', '${tipo}', '${nombres}', '${apellidos}', '${f_nacimiento}', '${celular}', 
+      '${correo}', '${direccion}');`,
+      (err, rows) => {
+        if (err) {
+          flagError = true;
+          console.log("Error: " + err);
+        }
+      }
+    );
+    conexion.query(
+      `insert into persona_estudios values ('${nuevo_id}', '${nuevo_id}');`,
+      (err, rows) => {
+        if (err) {
+          flagError = true;
+          console.log("Error: " + err);
+        }
+      }
+    );
+    conexion.query(
+      `insert into persona_referencia values ('${nuevo_id}', '${nuevo_id}');`,
+      (err, rows) => {
+        if (err) {
+          flagError = true;
+          console.log("Error: " + err);
+        }
+      }
+    );
+    conexion.query(
+      `insert into persona_experiencia values ('${nuevo_id}', '${nuevo_id}');`,
+      (err, rows) => {
+        if (err) {
+          flagError = true;
+          console.log("Error: " + err);
+        }
+      }
+    );
+    if (flagError != true) {
+      res.send("Postulante registrado correctamente en la Base de Datos!");
+    }
+  }
+});
+
+//Tabla postulantes
+app.post("/post-postulantes", (req, res) => {
+  res.setHeader("content-type", "text/plain");
+  const accion = req.body.accion;
+  if (accion == "cargar_postulantes") {
+    conexion.query(
+      `select id_persona as id, nombre_persona as nombre, apellido_persona as apellido, nombre_cargo as cargo, 
+      celular_persona as celular, correo_persona as correo from persona inner join cargo on 
+      persona.id_cargo = cargo.id_cargo where id_tipo = '00001' order by id_persona;`,
+      (err, rows) => {
+        res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
+      }
+    );
+  } else if (accion == "contratar_postulante"){
+    const id = req.body.id;
+    conexion.query(
+      `update persona set id_tipo='00002' where id_persona='${id}'`,
+      (err, rows) => {
+        res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
+      }
+    );
+  }
+  else if (accion == "descartar_postulante"){
+    const id = req.body.id;
+    conexion.query(`delete from persona_referencia where id_persona='${id}'`);
+    conexion.query(`delete from persona_experiencia where id_persona='${id}'`);
+    conexion.query(`delete from persona_estudios where id_persona='${id}'`);
+    conexion.query(`delete from referencia where id_referencia='${id}'`);
+    conexion.query(`delete from experiencia_laboral where id_experiencia='${id}'`);
+    conexion.query(`delete from estudios where id_estudio='${id}'`);
+    conexion.query(`delete from persona where id_persona='${id}'`);
+  } else if (accion == "cargar_cargo") {
+    conexion.query(
+      "select id_cargo as id, nombre_cargo as nombre from cargo order by id_cargo;",
+      (err, rows) => {
+        res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
+      }
+    );
+  }
+});
+
+//Tabla empleados
+app.post("/post-empleados", (req, res) => {
+  res.setHeader("content-type", "text/plain");
+  const accion = req.body.accion;
+  if (accion == "cargar_empleados") {
+    conexion.query(
+      `select id_persona as id, nombre_persona as nombre, apellido_persona as apellido, nombre_cargo as cargo, 
+      nombre_departamento as departamento from persona inner join cargo on 
+      persona.id_cargo = cargo.id_cargo inner join departamento on 
+      persona.id_departamento = departamento.id_departamento where id_tipo = '00002' order by id_persona;`,
+      (err, rows) => {
+        res.send(JSON.stringify(rows)); //Retornamos la respuesta de la base de datos
+      }
+    );
+  } else if(accion == "cambiar_cargo"){
+    const id_empleado = req.body.id_empleado;
+    const id_cargo = req.body.id_cargo;
+    conexion.query(
+      `update persona set id_cargo = '${id_cargo}' where id_persona = '${id_empleado}'`,
+      (err, rows) => {
+        if (err) {
+          res.send("" + err);
+        } else {
+          res.send("ok");
+        }
+      }
+    );
+  } else if(accion == "cambiar_departamento"){
+    const id_empleado = req.body.id_empleado;
+    const id_departamento = req.body.id_departamento;
+    conexion.query(
+      `update persona set id_departamento = '${id_departamento}' where id_persona = '${id_empleado}'`,
+      (err, rows) => {
+        if (err) {
+          res.send("" + err);
+        } else {
+          res.send("ok");
+        }
+      }
+    );
+  }
+});
 //Servidor
 app.listen(3000, () => {
   console.log("Servidor iniciado en el puerto 3000");

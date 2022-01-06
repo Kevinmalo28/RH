@@ -5,59 +5,62 @@ var usuario = "";
 var pass_1 = "";
 var pass_2 = "";
 
-function soloLectura(){
-    document.getElementById("usuario").readOnly = true;
+function soloLectura() {
+  document.getElementById("usuario").readOnly = true;
 }
 
-function formatearUsuario(){
-    nombre = document.getElementById("nombre").value;
-    apellido = document.getElementById("apellido").value;
-    usuario = document.getElementById("usuario").value;
+function formatearUsuario() {
+  nombre = document.getElementById("nombre").value;
+  apellido = document.getElementById("apellido").value;
+  usuario = document.getElementById("usuario").value;
 
-    if(nombre == "" & apellido == ""){ //Los campos Nombre y Apellido estan vacíos
-        alert("Rellene los campos \"Nombre\" y \"Apellido\" para continuar...");
-    }
-    else if(nombre == "" & apellido != ""){ //El campo Nombre esta vacío pero Apellido no
-        alert("Falta rellenar el campo \"Nombre\" para continuar...");
-    }
-    else if(nombre != "" & apellido == ""){ //El campo apellido esta vacío pero Nombre no
-        alert("Falta rellenar el campo \"Apellido\" para continuar...");
-    }
-    else if(nombre != "" & apellido != ""){ //Si los campos no estan vacíos
-        document.getElementById("nombre").value = nombre.toLowerCase();
-        document.getElementById("apellido").value = apellido.toLowerCase();
-        usuarioFormateado = nombre.substring(0,1).toLowerCase() + "." + apellido.toLowerCase();
-        document.getElementById("usuario").value = usuarioFormateado; //Asignamos el valor al input
-    }
+  if ((nombre == "") & (apellido == "")) {
+    //Los campos Nombre y Apellido estan vacíos
+    alert('Rellene los campos "Nombre" y "Apellido" para continuar...');
+  } else if ((nombre == "") & (apellido != "")) {
+    //El campo Nombre esta vacío pero Apellido no
+    alert('Falta rellenar el campo "Nombre" para continuar...');
+  } else if ((nombre != "") & (apellido == "")) {
+    //El campo apellido esta vacío pero Nombre no
+    alert('Falta rellenar el campo "Apellido" para continuar...');
+  } else if ((nombre != "") & (apellido != "")) {
+    //Si los campos no estan vacíos
+    document.getElementById("nombre").value = nombre.toLowerCase();
+    document.getElementById("apellido").value = apellido.toLowerCase();
+    usuarioFormateado =
+      nombre.substring(0, 1).toLowerCase() + "." + apellido.toLowerCase();
+    document.getElementById("usuario").value = usuarioFormateado; //Asignamos el valor al input
+  }
 }
 
-function obtenerDatos(){
-    //Capturar los datos del formulario
-    pass_1 = document.getElementById("contraseña_1").value;
-    pass_2 = document.getElementById("contraseña_2").value;
-    comprobar(pass_1, pass_2);
+function obtenerDatos() {
+  //Capturar los datos del formulario
+  pass_1 = document.getElementById("contraseña_1").value;
+  pass_2 = document.getElementById("contraseña_2").value;
+  comprobar(pass_1, pass_2);
 }
 
-function comprobar(datoPass_1, datoPass_2){
-    //Vomprobar que sean diferentes
-    if(datoPass_1 != datoPass_2){
-        alert("Las contraseñas no coinciden!");
-        return true;
-    } else if(datoPass_1.length < 5){ //Comprobar que la contraseña tenga menos de 5 caracteres
-        alert("La contraseña es demasiado corta");
-        return true;
-    } else {
-        return false;
-    }
+function comprobar(datoPass_1, datoPass_2) {
+  //Vomprobar que sean diferentes
+  if (datoPass_1 != datoPass_2) {
+    alert("Las contraseñas no coinciden!");
+    return true;
+  } else if (datoPass_1.length < 5) {
+    //Comprobar que la contraseña tenga menos de 5 caracteres
+    alert("La contraseña es demasiado corta");
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function compobarFecha(){
-    var desde = document.getElementById("desde").value;
-    var hasta = document.getElementById("hasta").value;
+function compobarFecha() {
+  var desde = document.getElementById("desde").value;
+  var hasta = document.getElementById("hasta").value;
 
-    if(hasta < desde){
-        alert("El periodo seleccionado es incorrecto!");
-    }
+  if (hasta < desde) {
+    alert("El periodo seleccionado es incorrecto!");
+  }
 }
 
 var msg = "";
@@ -67,82 +70,228 @@ expr_celular = /^(09)[0-9]{8}$/;
 solo_letras = /^([a-zA-Z]{0,25}[\s]{1}([a-zA-Z]{0,25})?)$/;
 
 function validarFormulario() {
-    nombres = document.getElementById("nombres").value;
-    apellidos = document.getElementById("apellidos").value;
-    r_nombres = document.getElementById("r-nombres").value;
-    r_apellidos = document.getElementById("r-apellidos").value;
-    r_parentesco = document.getElementById("r-parentesco").value;
-    correo = document.getElementById("correo").value;
-    r_correo = document.getElementById("r-correo").value;
-    celular = document.getElementById("celular").value;
-    r_celular = document.getElementById("r-celular").value;
-    f_inicio_1 = document.getElementById("f-inicio-1").value;
-    f_fin_1 = document.getElementById("f-fin-1").value;
-    f_inicio_2 = document.getElementById("f-inicio-2").value;
-    f_fin_2 = document.getElementById("f-fin-2").value;
-    f_inicio_c_1 = document.getElementById("f-inicio-c-1").value;
-    f_fin_c_1 = document.getElementById("f-fin-c-1").value;
-    f_inicio_c_2 = document.getElementById("f-inicio-c-2").value;
-    f_fin_c_2 = document.getElementById("f-fin-c-2").value;
+  //Información personal
+  nombres = document.getElementById("nombres").value;
+  apellidos = document.getElementById("apellidos").value;
+  sexo = document.getElementById("sexo").value;
+  estado_civil = document.getElementById("estado-civil").value;
+  f_nacimiento = document.getElementById("fecha-nacimiento").value;
+  celular = document.getElementById("celular").value;
+  correo = document.getElementById("correo").value;
+  direccion = document.getElementById("direccion").value;
+  nacionalidad = document.getElementById("nacionalidad").value;
+  escolaridad = document.getElementById("escolaridad").value;
+  //Estudios realizados
+  n_institucion_1 = document.getElementById("n-institucion-1").value;
+  titulo_obt_1 = document.getElementById("t-obtenido-1").value;
+  f_inicio_1 = document.getElementById("f-inicio-1").value;
+  f_fin_1 = document.getElementById("f-fin-1").value;
+  //Referencia personal
+  r_nombres = document.getElementById("r-nombres").value;
+  r_apellidos = document.getElementById("r-apellidos").value;
+  r_correo = document.getElementById("r-correo").value;
+  r_parentesco = document.getElementById("r-parentesco").value;
+  r_celular = document.getElementById("r-celular").value;
+  r_direccion = document.getElementById("r-direccion").value;
+  //Datos del empleo solicitado
+  cargo = document.getElementById("cargo").value;
+  departamento = document.getElementById("departamento").value;
+  //Experiancia laboral
+  n_compania_1 = document.getElementById("n-compania-1").value;
+  c_desempeniado_1 = document.getElementById("c-desempeniado-1").value;
+  f_inicio_c_1 = document.getElementById("f-inicio-c-1").value;
+  f_fin_c_1 = document.getElementById("f-fin-c-1").value;
 
-    validarLetras(solo_letras, nombres, 1);
-    validarLetras(solo_letras, apellidos, 2);
-    validarLetras(solo_letras, r_nombres, 3);
-    validarLetras(solo_letras, r_apellidos, 4);
-    validarLetras(solo_letras, r_parentesco, 5);
-    validarCorreo(expr, correo);
-    validarCorreo(expr, r_correo);
-    validarCelular(expr_celular, celular, 1);
-    validarCelular(expr_celular, r_celular, 2);
-    validarFechas(f_inicio_1, f_fin_1, 1);
-    validarFechas(f_inicio_2, f_fin_2, 2);
-    validarFechas(f_inicio_c_1, f_fin_c_1, 3);
-    validarFechas(f_inicio_c_2, f_fin_c_2, 4);
+  let alerta = "";
+  alerta += validarLetras(solo_letras, nombres, 1);
+  alerta += validarLetras(solo_letras, apellidos, 2);
+  alerta += validarLetras(solo_letras, r_nombres, 3);
+  alerta += validarLetras(solo_letras, r_apellidos, 4);
+  alerta += validarCorreo(expr, correo);
+  alerta += validarCorreo(expr, r_correo);
+  alerta += validarCelular(expr_celular, celular, 1);
+  alerta += validarCelular(expr_celular, r_celular, 2);
+  alerta += validarFechas(f_inicio_1, f_fin_1, 1);
+  alerta += validarFechas(f_inicio_c_1, f_fin_c_1, 3);
+  alerta += validarSelect(sexo, 1);
+  alerta += validarSelect(estado_civil, 2);
+  alerta += validarSelect(nacionalidad, 3);
+  alerta += validarSelect(escolaridad, 4);
+  alerta += validarSelect(cargo, 5);
+  alerta += validarSelect(departamento, 6);
+  if (alerta.length >= 1) {
+    alert(alerta);
+  }
+
+  //Verificar que los campos requeridos no esten vacíos
+  if (
+    alerta.length >= 1 ||
+    nombres == "" ||
+    apellidos == "" ||
+    sexo == "" ||
+    estado_civil == "" ||
+    f_nacimiento == "" ||
+    celular == "" ||
+    correo == "" ||
+    direccion == "" ||
+    nacionalidad == "" ||
+    escolaridad == "" ||
+    n_institucion_1 == "" ||
+    titulo_obt_1 == "" ||
+    f_inicio_1 == "" ||
+    f_fin_1 == "" ||
+    r_nombres == "" ||
+    r_apellidos == "" ||
+    r_correo == "" ||
+    r_parentesco == "" ||
+    r_celular == "" ||
+    r_direccion == "" ||
+    cargo == "" ||
+    departamento == "" ||
+    n_compania_1 == "" ||
+    c_desempeniado_1 == "" ||
+    f_inicio_c_1 == "" ||
+    f_fin_c_1 == ""
+  ) {
+    alert("Campos obligatorios vacíos!");
+  } else {
+    let url = "/post-persons";
+    let json = JSON.stringify({ accion: "consultar_ultimo_id_persona" });
+    fetch(url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: json,
+    })
+      .then((res) => res.text())
+      .then((data) => {
+        let nuevo_id = ("0000" + (parseInt(data) + 1)).slice(-5);
+        let json = JSON.stringify({
+          id: nuevo_id,
+          data_nombres: nombres,
+          data_apellidos: apellidos,
+          data_sexo: sexo,
+          data_estado_civil: estado_civil,
+          data_f_nacimiento: formatData(f_nacimiento),
+          data_celular: celular,
+          data_data_correo: correo,
+          data_direccion: direccion,
+          data_nacionalidad: nacionalidad,
+          data_escolaridad: escolaridad,
+          data_n_institucion_1: n_institucion_1,
+          data_titulo_obt_1: titulo_obt_1,
+          data_f_inicio_1: formatData(f_inicio_1),
+          data_f_fin_1: formatData(f_fin_1),
+          data_r_nombres: r_nombres,
+          data_r_apellidos: r_apellidos,
+          data_r_correo: r_correo,
+          data_r_parentesco: r_parentesco,
+          data_r_celular: r_celular,
+          data_r_direccion: r_direccion,
+          data_cargo: cargo,
+          data_departamento: departamento,
+          data_n_compania_1: n_compania_1,
+          data_c_desempeniado_1: c_desempeniado_1,
+          data_f_inicio_c_1: formatData(f_inicio_c_1),
+          data_f_fin_c_1: formatData(f_fin_c_1),
+          data_tipo: "00001",
+          accion: "crear_vacante",
+        });
+        fetch(url, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: json,
+        })
+          .then((res) => res.text())
+          .then((data) => alert(data))
+          .catch((error) => console.log(error));
+      });
+  }
 }
 
-function validarCorreo(datoExpresion, datoCorreo){
-    if (!datoExpresion.test(datoCorreo))
-        alert("Error: La dirección de correo \"" + datoCorreo + "\" es incorrecta.");
+function formatData(value) {
+  let year = value.substring(0, 4);
+  let month = value.substring(5, 7);
+  let day = value.substring(8, 10);
+  return year + "/" + month + "/" + day;
 }
 
-function validarFechas(inicio, fin, id){
-    if(id == 1){
-        msg = "Estudios realizados 1";
-    } else if(id == 2){
-        msg = "Estudios realizados 2";
-    } else if(id == 3){
-        msg = "Experiencia laboral 1";
-    } else if(id == 4){
-        msg = "Experiencia laboral 2";
-    }
-    if(inicio > fin){
-        alert("Las fechas de \"" + msg + "\" son incorrectas");
-    }
-}
-function validarCelular(datoExpresion, datoNumero, id){
-    if(id == 1){
-        msg = "personal";
-    } else if(id == 2){
-        msg = "de la referencia";
-    }
-    if(!datoExpresion.test(datoNumero)){
-        alert("El número celular " + msg + " es incorrecto");
-    }
-}
-function validarLetras(datoExpresion, datoLetra, id){
-    if(id == 1){
-        msg = "nombres personales";
-    } else if(id == 2){
-        msg = "apellidos personales";
-    } else if(id == 3){
-        msg = "nombres de la referencia";
-    } else if(id == 4){
-        msg = "apellidos de la referencia";
-    } else if(id == 5){
-        msg = "parentesco de la referencia";
-    }
-    if(!datoExpresion.test(datoLetra)){
-        alert("El campo \"" + msg + "\" es incorrecto");
-    }
+function validarSelect(valueSelect, id) {
+  let msg = "";
+  if (id == 1) {
+    msg = "un sexo";
+  } else if (id == 2) {
+    msg = "un estado civil";
+  } else if (id == 3) {
+    msg = "una nacionalidad";
+  } else if (id == 4) {
+    msg = "una escolaridad";
+  } else if (id == 5) {
+    msg = "un cargo";
+  } else if (id == 6) {
+    msg = "un departamento";
+  }
+  if (valueSelect == "00000") {
+    return "  -  Debe seleccionar " + msg + " para la persona. \n";
+  } else {
+    return "";
+  }
 }
 
+function validarCorreo(datoExpresion, datoCorreo) {
+  if (!datoExpresion.test(datoCorreo)) {
+    if (datoCorreo == "") {
+      datoCorreo = "null";
+    }
+    return '  -  La dirección de correo "' + datoCorreo + '" es incorrecta. \n';
+  } else {
+    return "";
+  }
+}
+
+function validarFechas(inicio, fin, id) {
+  if (id == 1) {
+    msg = "Estudios realizados 1";
+  } else if (id == 2) {
+    msg = "Estudios realizados 2";
+  } else if (id == 3) {
+    msg = "Experiencia laboral 1";
+  } else if (id == 4) {
+    msg = "Experiencia laboral 2";
+  }
+  if (inicio == "") {
+    inicio = "null";
+  }
+  if (inicio > fin) {
+    return '  -  Las fechas de "' + msg + '" son incorrectas. \n';
+  } else {
+    return "";
+  }
+}
+function validarCelular(datoExpresion, datoNumero, id) {
+  if (id == 1) {
+    msg = "personal";
+  } else if (id == 2) {
+    msg = "de la referencia";
+  }
+  if (!datoExpresion.test(datoNumero)) {
+    return "  -  El número de celular " + msg + " es incorrecto. \n";
+  } else {
+    return "";
+  }
+}
+function validarLetras(datoExpresion, datoLetra, id) {
+  if (id == 1) {
+    msg = "nombres personales";
+  } else if (id == 2) {
+    msg = "apellidos personales";
+  } else if (id == 3) {
+    msg = "nombres de la referencia";
+  } else if (id == 4) {
+    msg = "apellidos de la referencia";
+  }
+  if (!datoExpresion.test(datoLetra)) {
+    return '  -  El campo "' + msg + '" es incorrecto. \n';
+  } else {
+    return "";
+  }
+}

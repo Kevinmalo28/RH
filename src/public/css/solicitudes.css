@@ -1,24 +1,27 @@
-.link_1{
-    background-color: var(--color-6);
+.link_1 {
+  background-color: var(--color-6);
 }
-.link_3{
-    background-color: var(--color-5);
+.link_3 {
+  background-color: var(--color-5);
 }
-.columna-1{
-    width: 13%;
+.columna-1 {
+  width: 13%;
 }
-.columna-3{
-    width: 17%;
+.columna-3 {
+  width: 17%;
 }
-.columna-4{
-    width: 14%;
-} 
-.columna-5{
-    width: 18%;
+.columna-4 {
+  width: 14%;
 }
-.columna-6{
-    width: 20%;
+.columna-5 {
+  width: 23%;
 }
-.icono-opcion{
-    margin: 0 8%;
+.columna-6 {
+  width: 15%;
+}
+.icono-opcion {
+  margin: 0 8%;
+}
+select {
+  background-color: #fff;
 }
